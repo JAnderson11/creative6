@@ -8,23 +8,16 @@
         
 <body>  
     <div ng-controller="myController">
-        <h2 id="welcomeText">Welcome. You are Logged In as
-            <%= username %>
-        </h2>
+        <h1 id="welcomeText">Welcome to Character Prison. </h1>
+        <h2> You give us the name and image of a character, and we make sure they never escape our site.</h2>
         <a id="logoutLink" href="/logout">Logout</a><br>
         <a id="editLink" href="/user">Edit User</a>
-        <p>Place Your Code Here
-            <p>
     </div>
     <hr>
-    <span id="indexMsg">
-        <%= msg %>
-    </span>
-    <hr>
     <span id="colorText">
-    Color
-        <%= color %>
-      </span>
+        <img=<%= char_image%>> <br>
+        <h3> Prisoner: <%= char_name%> </h3>
+    </span>
     <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
     <script src="/javascripts/my_app.js"></script>
 </body>

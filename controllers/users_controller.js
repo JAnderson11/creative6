@@ -11,8 +11,6 @@ exports.signup = function(req, res){
   console.log("after new user exports.signup");
   user.set('hashed_password', hashPW(req.body.password));
   console.log("after hashing user exports.signup");
-  user.set('email', req.body.email);
-  console.log("after email user exports.signup");
   user.save(function(err) {
     console.log("In exports.signup");
     console.log(err);
@@ -40,7 +38,8 @@ exports.login = function(req, res){
         req.session.user = user.id;
         req.session.username = user.username;
         req.session.msg = 'Authenticated as ' + user.username;
-        req.session.color = user.color;
+        req.session.char_image = user.char_image;
+        req.session.char_name = user.char_name;
         res.redirect('/');
       });
     }else{
@@ -67,14 +66,15 @@ exports.getUserProfile = function(req, res) {
 exports.updateUser = function(req, res){
   User.findOne({ _id: req.session.user })
   .exec(function(err, user) {
-    user.set('email', req.body.email);
-    user.set('color', req.body.color);
+    user.set('char_image', req.body.char_image);
+    user.set('char_name', req.body.char_name);
     user.save(function(err) {
       if (err){
         res.sessor.error = err;
       } else {
-        req.session.msg = 'User Updated.';
-        req.session.color = req.body.color;
+        req.session.msg = 'Prisoner Updated.';
+        req.session.char_image = req.body.char_image;
+        req.session.char_name = req.body.char_name;
       }
       res.redirect('/user');
     });
