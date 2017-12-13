@@ -10,6 +10,13 @@ router.get('/', function(req, res){
     console.log(req.session);
     if (req.session.user) {
       console.log("/ Route if user");
+      console.log(req.session.char_image);
+      if (!req.session.char_image){
+        req.session.char_image = '/images/blank.png';
+      }
+      if(!req.session.char_name){
+        req.session.char_name = "no prisoner";
+      }
       res.render('index', {username: req.session.username,
                            msg:req.session.msg,
                            char_image:req.session.char_image,
