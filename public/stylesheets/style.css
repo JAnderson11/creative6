@@ -16,6 +16,10 @@ img {
   position: relative;
 }
 
+#delete {
+  margin-top: 10px;
+}
+
 #bar {
   z-index: 1;
 }
