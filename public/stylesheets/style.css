@@ -3,6 +3,23 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+}
+
+#prison-bars {
+  margin-top: 25px;
+  position: relative;
+}
+
+#bar {
+  z-index: 1;
+}
+
 a {
   color: #00B7FF;
 }
